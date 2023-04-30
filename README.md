@@ -78,7 +78,7 @@ Example response:
 - All responses are in JSON format.
 - No database is required. All data is saved in memory while the server is running.
 
-## Running The Server
+## Running The Server Locally
 
 1. Clone the project: `git clone https://github.com/SaharTirosh/timelogger-api.git`
 2. Navigate to the project directory: `cd timelogger-api\src\main\java\com\timelogger\timeloggerapi\TimeLoggerApiApplication.java`
