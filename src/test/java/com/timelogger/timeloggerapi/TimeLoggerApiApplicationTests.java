@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class TimeLoggerApiApplicationTests {
 
-	private static final String BASE_URL = "http://localhost:8080/api/v1/timelogger/";
+	private static final String BASE_URL = "https://timelogger-service.herokuapp.com/";
 
 	@Test
 	void testGoodCases() throws IOException {
