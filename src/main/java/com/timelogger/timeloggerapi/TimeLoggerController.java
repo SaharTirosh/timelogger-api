@@ -3,7 +3,6 @@ package com.timelogger.timeloggerapi;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-// @RequestMapping(path = "api/v1/timelogger/") // To running the application locally
 @RequestMapping(path = "/")
 public class TimeLoggerController {
     TimeLoggerService loggerService = new TimeLoggerService();
