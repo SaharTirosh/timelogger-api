@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 // @RequestMapping(path = "api/v1/timelogger/")
-@RequestMapping(path = "https://timelogger-service.herokuapp.com")
+@RequestMapping(path = "/")
 public class TimeLoggerController {
     TimeLoggerService loggerService = new TimeLoggerService();
 
