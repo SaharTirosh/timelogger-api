@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-
 public class TimeLoggerDictionary {
     private Map<Integer, Worker> timeLoggerDictionary;
     private ReentrantReadWriteLock lock;
@@ -20,9 +19,12 @@ public class TimeLoggerDictionary {
         this.timeLoggerDictionary = new HashMap<>();
     }
 
-    // This function uses read and write locks to ensure thread-safety when accessing and modifying a worker's shifts.
-    // The function first checks if the worker exists, and if so, it acquires a write lock and creates a copy of the worker's shifts.
-    // Then the function acquires a write lock and adds the new entry to the worker's shifts.
+    // This function uses read and write locks to ensure thread-safety when
+    // accessing and modifying a worker's shifts.
+    // The function first checks if the worker exists, and if so, it acquires a
+    // write lock and creates a copy of the worker's shifts.
+    // Then the function acquires a write lock and adds the new entry to the
+    // worker's shifts.
     public void addNewEntry(int id, WorkerEntry workerEntry) throws Exception {
         createWorkerIfNotExists(id);
         Worker workerObj = timeLoggerDictionary.get(id);
@@ -43,8 +45,11 @@ public class TimeLoggerDictionary {
             workerObj.lock.unlock();
         }
     }
-    // This function uses read and write locks to ensure thread-safety when accessing and modifying a worker's shifts.
-    // The function first checks if the worker exists, and if so, it acquires a read lock and creates a copy of the worker's shifts. 
+
+    // This function uses read and write locks to ensure thread-safety when
+    // accessing and modifying a worker's shifts.
+    // The function first checks if the worker exists, and if so, it acquires a read
+    // lock and creates a copy of the worker's shifts.
     public ArrayList<WorkerShiftTime> getWorkerShifts(int id) {
         if (!timeLoggerDictionary.containsKey(id)) {
             throw new IllegalArgumentException("worker not found");
@@ -86,9 +91,14 @@ public class TimeLoggerDictionary {
             workerShifts.get(lastShiftIndex).workerExitTime = workerEntry.workerEntryDateTime;
         }
     }
-    // This is a thread-safe function that prevents the creation of multiple workers with the same ID by using read and write locks.
-    // If the worker does not exist, the function releases the read lock and acquires a write lock before checking again and creating a new worker if necessary.
-    // This ensures that only one thread can create a worker with a specific ID at a time.
+
+    // This is a thread-safe function that prevents the creation of multiple workers
+    // with the same ID by using read and write locks.
+    // If the worker does not exist, the function releases the read lock and
+    // acquires a write lock before checking again and creating a new worker if
+    // necessary.
+    // This ensures that only one thread can create a worker with a specific ID at a
+    // time.
     private void createWorkerIfNotExists(int id) {
         readLock.lock();
         if (!timeLoggerDictionary.containsKey(id)) {

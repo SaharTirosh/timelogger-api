@@ -2,9 +2,8 @@ package com.timelogger.timeloggerapi;
 
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
-// @RequestMapping(path = "api/v1/timelogger/")
+// @RequestMapping(path = "api/v1/timelogger/") // To running the application locally
 @RequestMapping(path = "/")
 public class TimeLoggerController {
     TimeLoggerService loggerService = new TimeLoggerService();
@@ -12,11 +11,12 @@ public class TimeLoggerController {
     @PostMapping(path = "enter")
     public void handleEnterRequest(@RequestParam(required = true) int id) throws Exception {
         System.out.println("Starting to handle enter request for user id: " + id);
-        try{
+        try {
             loggerService.addNewEntry(id, WorkerEntryStatus.ENTER);
             System.out.println("Done handling enter request for user id: " + id + ".");
         } catch (Exception e) {
-            System.out.println("Exception occurred while handling enter request for user id: " + id + ". error: " + e.getMessage());
+            System.out.println("Exception occurred while handling enter request for user id: " + id + ". error: "
+                    + e.getMessage());
             throw e;
         }
     }
@@ -28,7 +28,8 @@ public class TimeLoggerController {
             loggerService.addNewEntry(id, WorkerEntryStatus.EXIT);
             System.out.println("Done handling exit request for user id: " + id + ".");
         } catch (Exception e) {
-            System.out.println("Exception occurred while handling exit request for user id: " + id + ". error: " + e.getMessage());
+            System.out.println(
+                    "Exception occurred while handling exit request for user id: " + id + ". error: " + e.getMessage());
             throw e;
         }
     }
@@ -44,4 +45,3 @@ public class TimeLoggerController {
         }
     }
 }
-
