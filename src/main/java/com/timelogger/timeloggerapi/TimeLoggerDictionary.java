@@ -44,7 +44,7 @@ public class TimeLoggerDictionary {
         }
     }
     // This function uses read and write locks to ensure thread-safety when accessing and modifying a worker's shifts.
-    // The function first checks if the worker exists, and if so, it acquires a read lock and creates a copy of the worker's shifts.
+    // The function first checks if the worker exists, and if so, it acquires a read lock and creates a copy of the worker's shifts. 
     public ArrayList<WorkerShiftTime> getWorkerShifts(int id) {
         if (!timeLoggerDictionary.containsKey(id)) {
             throw new IllegalArgumentException("worker not found");
