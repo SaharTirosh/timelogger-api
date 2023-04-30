@@ -5,9 +5,9 @@ This is a Java 17 and Maven-based server that logs workers entrance and exit tim
 ## API Reference
 
 
-**Server URL**
+## Server URL 
 
-https://timelogger-service.herokuapp.com
+**https://timelogger-service.herokuapp.com**
 
 The server supports the following endpoints for interacting with employees:
 
