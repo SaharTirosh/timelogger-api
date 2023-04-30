@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.timelogger</groupId>
 	<artifactId>timelogger-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>TimeLoggerAPI</name>
 	<description>Work time logging server with entrance and exit time tracking for employees</description>
 	<properties>
